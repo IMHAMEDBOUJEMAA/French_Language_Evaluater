@@ -1,0 +1,71 @@
+[System]
+Name='fuzzy_system_class'
+Type='mamdani'
+Version=2.0
+NumInputs=3
+NumOutputs=1
+NumRules=22
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Spoken_Exam_Score'
+Range=[0 10]
+NumMFs=4
+MF1='Substandard':'trapmf',[0 0 1 2]
+MF2='Average_level':'trapmf',[1 3 4 5]
+MF3='Above_average_level':'trapmf',[4 6 7 8]
+MF4='Very_good_standard':'trapmf',[7 9 10 10]
+
+[Input2]
+Name='Written_Exam-Score'
+Range=[0 10]
+NumMFs=4
+MF1='Substandard':'trapmf',[0 0 1 2]
+MF2='Average_level':'trapmf',[1 3 4 5]
+MF3='Above_average_level':'trapmf',[4 6 7 8]
+MF4='Very_good_standard':'trapmf',[7 9 10 10]
+
+[Input3]
+Name='Comprehension_Exam_Score'
+Range=[0 10]
+NumMFs=4
+MF1='Substandard':'trapmf',[0 0 1 2]
+MF2='Average_level':'trapmf',[1 3 4 5]
+MF3='Above_average_level':'trapmf',[4 6 7 8]
+MF4='Very_good_standard':'trapmf',[7 9 10 10]
+
+[Output1]
+Name='Class'
+Range=[0 10]
+NumMFs=3
+MF1='Beginner':'trapmf',[0 0 3 3]
+MF2='intermédiate':'trapmf',[3 3 6 6]
+MF3='advanced':'trapmf',[6 6 10 10]
+
+[Rules]
+1 1 1, 1 (1) : 1
+1 1 -1, 1 (1) : 1
+1 -1 1, 1 (1) : 1
+-1 1 1, 1 (1) : 1
+-2 2 2, 1 (1) : 1
+2 2 2, 1 (1) : 1
+2 -2 2, 1 (1) : 1
+2 2 -2, 1 (1) : 1
+3 2 3, 2 (1) : 1
+2 3 3, 2 (1) : 1
+3 3 2, 2 (1) : 1
+3 3 3, 2 (1) : 1
+3 3 4, 2 (1) : 1
+3 4 3, 2 (1) : 1
+4 3 3, 2 (1) : 1
+4 4 3, 3 (1) : 1
+4 3 4, 3 (1) : 1
+3 4 4, 3 (1) : 1
+4 4 4, 3 (1) : 1
+1 -1 -1, 1 (1) : 1
+-1 1 -1, 1 (1) : 1
+-1 -1 1, 1 (1) : 1
